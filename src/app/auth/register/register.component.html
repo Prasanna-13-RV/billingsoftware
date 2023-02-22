@@ -1,0 +1,117 @@
+<!-- component -->
+<div class="w-full flex flex-row justify-center items-center">
+  <div class="container mx-auto">
+    <div class="flex justify-center">
+      <div class="w-full xl:w-3/4 lg:w-11/12 flex flex-row-reverse my-3">
+        <div
+          class="w-full h-auto hidden lg:block lg:w-1/2 bg-cover rounded-r-lg"
+          style="
+            background: url('https://img.freepik.com/free-vector/passive-earning-personal-bank-account-forex-exchange-crowdfunding-fund-raising-investment-transfer-receiving-income-online-payback-with-internet-vector-isolated-concept-metaphor-illustration_335657-4320.jpg?w=740&t=st=1673092564~exp=1673093164~hmac=cae018189126537db6874585a816207abc041cf765692535f276c9945759adf0')
+              center/cover no-repeat;
+          "
+        ></div>
+        <div class="w-full lg:w-1/2 bg-white p-5 rounded-l-lg">
+          <h3 class="pt-4 text-2xl text-center">It's good to see you</h3>
+          <form class="px-8 pt-6 mb-4 bg-white rounded">
+            <div class="mb-4">
+              <label
+                class="block mb-2 text-sm font-bold text-gray-700"
+                for="username"
+              >
+                Username
+              </label>
+              <input
+                class="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+                id="username"
+                name="username"
+                type="text"
+                placeholder="Tony Stark"
+                required
+                autofocus
+                [(ngModel)]="username"
+              />
+            </div>
+            <div class="mb-4">
+              <label
+                class="block mb-2 text-sm font-bold text-gray-700"
+                for="username"
+              >
+                Email
+              </label>
+              <input
+                class="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+                id="username"
+                type="email"
+                name="email"
+                placeholder="abc@gmail.com"
+                required
+                [(ngModel)]="email"
+              />
+            </div>
+            <div class="mb-4">
+              <label
+                class="block mb-2 text-sm font-bold text-gray-700"
+                for="password"
+              >
+                Password
+              </label>
+              <input
+                class="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+                id="password"
+                type="password"
+                name="password"
+                placeholder="******************"
+                required
+                [(ngModel)]="password"
+              />
+            </div>
+            <div class="mb-4">
+              <label
+                class="block mb-2 text-sm font-bold text-gray-700"
+                for="rePassword"
+              >
+                Retype your Password
+              </label>
+              <input
+                class="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+                id="rePassword"
+                type="password"
+                name="rePassword"
+                placeholder="******************"
+                required
+                [(ngModel)]="rePassword"
+              />
+            </div>
+            <div class="pt-3 text-center">
+              <button
+                class="w-full px-4 py-2 font-bold text-white bg-[#52796F] rounded-full hover:bg-[#354F52] focus:outline-none focus:shadow-outline"
+                type="button"
+                (click)="register()"
+              >
+                Sign In
+              </button>
+            </div>
+            <div class="pt-3 text-center">
+              <button
+                class="w-full px-4 py-2 font-bold text-white bg-[#52796F] rounded-full hover:bg-[#354F52] focus:outline-none focus:shadow-outline"
+                type="button"
+                (click)="auth.GoogleAuth()"
+              >
+                Sign In With Google
+              </button>
+            </div>
+            <hr class="mb-6 border-t" />
+            <div class="text-center">
+              <a
+                class="text-sm text-[#52796F] hover:text-[#354F52]"
+                routerLink="/login"
+              >
+                Want to login to your Account!!!
+              </a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

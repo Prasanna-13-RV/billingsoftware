@@ -1,0 +1,88 @@
+<!-- component -->
+<div
+  class="h-[calc(100vh-60px)] w-full flex flex-row justify-center items-center"
+>
+  <!-- Container -->
+  <div class="container mx-auto">
+    <div class="flex justify-center">
+      <!-- Row -->
+      <div class="w-full xl:w-3/4 lg:w-11/12 flex mx-3">
+        <!-- Col -->
+        <div
+          class="w-full h-auto bg-gray-400 hidden lg:block lg:w-1/2 bg-cover rounded-l-lg"
+          style="
+            background: url('https://img.freepik.com/free-vector/financial-obligation-document-promissory-bill-loan-agreement-debt-return-promise-issuer-payee-signing-contract-businessmen-making-deal_335657-848.jpg?w=740&t=st=1673092519~exp=1673093119~hmac=c471ccb3bab452ca6cedb31364f8ae08ab73c1ea5367cce5af5ec1716b6132ad') center/cover no-repeat;
+          "
+        ></div>
+        <!-- Col -->
+        <div class="w-full lg:w-1/2 bg-white p-5 rounded-lg lg:rounded-l-none">
+          <h3 class="pt-4 text-2xl text-center">Welcome Back!</h3>
+          <form class="px-8 pt-6 pb-8 mb-4 bg-white rounded">
+            <div class="mb-4">
+              <label
+                class="block mb-2 text-sm font-bold text-gray-700"
+                for="username"
+              >
+                Email
+              </label>
+              <input
+                class="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+                id="username"
+                type="email"
+                name="email"
+                placeholder="abc@gmail.com"
+                required
+                autofocus
+                [(ngModel)]="email"
+                (change)="login()"
+              />
+            </div>
+            <div class="mb-4">
+              <label
+                class="block mb-2 text-sm font-bold text-gray-700"
+                for="password"
+              >
+                Password
+              </label>
+              <input
+                class="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+                id="password"
+                type="password"
+                name="password"
+                placeholder="******************"
+                required
+                [(ngModel)]="password"
+              />
+            </div>
+            <div class="pt-6 text-center">
+              <button
+                class="w-full px-4 py-2 font-bold text-white bg-[#52796F] rounded-full hover:bg-[#354F52] focus:outline-none focus:shadow-outline"
+                type="button"
+                (click)="login()"
+              >
+                Sign In
+              </button>
+            </div>
+            <hr class="mb-6 border-t" />
+            <div class="text-center">
+              <a
+                class="text-sm text-[#52796F] hover:text-[#354F52]"
+                routerLink="/register"
+              >
+                Create an Account!
+              </a>
+            </div>
+            <!-- <div class="text-center">
+              <a
+                class="text-sm text-[#52796F] hover:text-blue-800"
+                href=""
+              >
+                Forgot Password?
+              </a>
+            </div> -->
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
