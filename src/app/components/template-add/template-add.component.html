@@ -1,0 +1,34 @@
+<button
+  mat-icon-button
+  style="float: right; margin: 5px"
+  mat-dialog-close="true"
+>
+  <mat-icon>close</mat-icon>
+</button>
+<mat-dialog-content>
+  <header>
+    <h1>Add Row</h1>
+  </header>
+  <mat-form-field>
+    <input type="text" placeholder="Enter Name" matInput />
+    <!-- <mat-icon matSuffix>person</mat-icon> -->
+  </mat-form-field>
+  <mat-form-field>
+    <input type="text" placeholder="Enter Price" matInput />
+    <!-- <mat-icon matSuffix></mat-icon> -->
+  </mat-form-field>
+  <mat-form-field>
+    <input type="text" placeholder="Enter Quantity" matInput />
+    <!-- <mat-icon matSuffix>person</mat-icon> -->
+  </mat-form-field>
+  <mat-form-field>
+    <input type="text" placeholder="Enter Total" matInput />
+    <!-- <mat-icon matSuffix>person</mat-icon> -->
+  </mat-form-field>
+  <mat-dialog-actions>
+    <button mat-raised-button color="primary">Save</button>
+    <button mat-raised-button color="warn" mat-dialog-close="true">
+      Cancel
+    </button>
+  </mat-dialog-actions>
+</mat-dialog-content>

@@ -1,0 +1,35 @@
+<section class="min-h-screen w-full bg-[#efefef]">
+  <div>
+    <div>
+      <h1>Template Name</h1>
+    </div>
+    <div>
+      <mat-dialog-actions>
+        <button mat-raised-button color="primary" (click)="openDialog()">
+          Add Row
+        </button>
+      </mat-dialog-actions>
+    </div>
+  </div>
+
+  <table class="rwd-table">
+    <tbody>
+      <tr>
+        <th>Product Name</th>
+        <th>Product Price</th>
+        <th>Product Quantity</th>
+        <th>Product Total</th>
+      </tr>
+      <tr *ngFor="let item of allRows">
+        <!-- <td data-th="Supplier Code">UPS5005</td>
+        <td data-th="Supplier Name">UPS</td>
+        <td data-th="Invoice Number">ASDF19218</td>
+        <td data-th="Invoice Date">06/25/2016</td> -->
+        <td data-th="Product Name">{{ item.name }}</td>
+        <td data-th="Product Price">{{ item.quantity }}</td>
+        <td data-th="Product Quantity">{{ item.price }}</td>
+        <td data-th="Product Total">{{ item.total }}</td>
+      </tr>
+    </tbody>
+  </table>
+</section>

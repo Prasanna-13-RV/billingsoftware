@@ -1,0 +1,151 @@
+<section class="w-full flex flex-col justify-center items-center">
+  <form [formGroup]="userProfile" (ngSubmit)="profile()" class="w-[50%]">
+    <div class="my-2 mx-5 flex flex-row items-center">
+      <label
+        class="block mb-2 text-sm font-bold text-gray-700 mr-5"
+        for="username"
+      >
+        Email
+      </label>
+      <input
+        class="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+        type="email"
+        placeholder="email"
+        formControlName="email"
+
+      />
+    </div>
+    <div class="my-2 mx-5 flex flex-row items-center">
+      <label
+        class="block mb-2 text-sm font-bold text-gray-700 mr-5"
+        for="username"
+      >
+        username
+      </label>
+      <input
+        class="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+        type="text"
+        placeholder="username"
+        formControlName="username"
+      />
+    </div>
+    <div class="my-2 mx-5 flex flex-row items-center">
+      <label
+        class="block mb-2 text-sm font-bold text-gray-700 mr-5"
+        for="address"
+      >
+        address
+      </label>
+      <input
+        class="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+        type="text"
+        placeholder="address"
+        formControlName="address"
+      />
+    </div>
+    <div class="my-2 mx-5 flex flex-row items-center">
+      <label
+        class="block mb-2 text-sm font-bold text-gray-700 mr-5"
+        for="state"
+      >
+        state
+      </label>
+      <input
+        class="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+        type="text"
+        placeholder="state"
+        formControlName="state"
+      />
+    </div>
+    <div class="my-2 mx-5 flex flex-row items-center">
+      <label
+        class="block mb-2 text-sm font-bold text-gray-700 mr-5"
+        for="country"
+      >
+        country
+      </label>
+      <input
+        class="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+        type="text"
+        placeholder="country"
+        formControlName="country"
+      />
+    </div>
+    <div class="my-2 mx-5 flex flex-row items-center">
+      <label
+        class="block mb-2 text-sm font-bold text-gray-700 mr-5"
+        for="zipcode"
+      >
+        zipcode
+      </label>
+      <input
+        class="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+        type="number"
+        placeholder="zipcode"
+        formControlName="zipcode"
+      />
+    </div>
+    <div class="my-2 mx-5 flex flex-row items-center">
+      <label
+        class="block mb-2 text-sm font-bold text-gray-700 mr-5"
+        for="organization"
+      >
+        organization
+      </label>
+      <input
+        class="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+        type="text"
+        placeholder="organization"
+        formControlName="organization"
+      />
+    </div>
+    <div class="my-2 mx-5 flex flex-row items-center">
+      <label
+        class="block mb-2 text-sm font-bold text-gray-700 mr-5"
+        for="companyName"
+      >
+        companyName
+      </label>
+      <input
+        class="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+        type="text"
+        placeholder="companyName"
+        formControlName="companyName"
+      />
+    </div>
+    <div class="my-2 mx-5 flex flex-row items-center">
+      <label
+        class="block mb-2 text-sm font-bold text-gray-700 mr-5"
+        for="phone"
+      >
+        phone
+      </label>
+      <input
+        class="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+        type="number"
+        placeholder="phone"
+        formControlName="phone"
+      />
+    </div>
+    <div class="my-2 mx-5 flex flex-row items-center">
+      <label
+        class="block mb-2 text-sm font-bold text-gray-700 mr-5"
+        for="template_id"
+      >
+        template_id
+      </label>
+      <input
+        class="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+        type="number"
+        placeholder="template_id"
+        formControlName="template_id"
+      />
+    </div>
+    <br />
+    <button
+      class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-4 rounded"
+    >
+      Submit
+    </button>
+  </form>
+</section>

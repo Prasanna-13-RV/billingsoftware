@@ -13,10 +13,14 @@
     </div>
 
     <div class="nav-links">
-      <a href="/">Home</a>
-      <a href="/contact">Contact</a>
-      <a href="/login">Login</a>
-      <a href="/register">Register</a>
+      <a routerLink="/">Home</a>
+      <a routerLink="/contact">Contact</a>
+      <a routerLink="/template">Templates</a>
+      <a routerLink="/login" *ngIf="getToken != true">Login</a>
+      <a routerLink="/register" *ngIf="getToken != true">Register</a>
+      <a routerLink="/login" *ngIf="getToken != false" (click)="logout()"
+        >Logout</a
+      >
     </div>
   </div>
 </div>
