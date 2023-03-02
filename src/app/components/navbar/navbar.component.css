@@ -12,11 +12,15 @@
   border-radius: 25px;
   padding: 0 30px;
   /* margin-top: 8px; */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.nav > .nav-header {
+/* .nav > .nav-header {
   display: inline;
-}
+} */
 
 .nav > .nav-header > .nav-title {
   display: inline-block;

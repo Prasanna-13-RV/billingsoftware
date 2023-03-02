@@ -1,34 +1,244 @@
-<button
-  mat-icon-button
-  style="float: right; margin: 5px"
-  mat-dialog-close="true"
->
-  <mat-icon>close</mat-icon>
-</button>
-<mat-dialog-content>
-  <header>
-    <h1>Add Row</h1>
-  </header>
-  <mat-form-field>
-    <input type="text" placeholder="Enter Name" matInput />
-    <!-- <mat-icon matSuffix>person</mat-icon> -->
-  </mat-form-field>
-  <mat-form-field>
-    <input type="text" placeholder="Enter Price" matInput />
-    <!-- <mat-icon matSuffix></mat-icon> -->
-  </mat-form-field>
-  <mat-form-field>
-    <input type="text" placeholder="Enter Quantity" matInput />
-    <!-- <mat-icon matSuffix>person</mat-icon> -->
-  </mat-form-field>
-  <mat-form-field>
-    <input type="text" placeholder="Enter Total" matInput />
-    <!-- <mat-icon matSuffix>person</mat-icon> -->
-  </mat-form-field>
-  <mat-dialog-actions>
-    <button mat-raised-button color="primary">Save</button>
-    <button mat-raised-button color="warn" mat-dialog-close="true">
-      Cancel
-    </button>
-  </mat-dialog-actions>
-</mat-dialog-content>
+<section class="relative">
+  <div class="max-w-5xl mx-auto pt-5 bg-white" id="pdfDownload" #pdfDownload>
+    <article class="overflow-hidden">
+      <div class="bg-[white] rounded-b-md">
+        <div class="px-9">
+          <div class="space-y-6 text-slate-700">
+            <!-- <img
+              class="object-cover h-12"
+              src="https://pbs.twimg.com/profile_images/1513243060834123776/dL8-d7zI_400x400.png"
+            /> -->
+            <p
+              class="text-xl font-extrabold tracking-tight uppercase font-body pb-5"
+            >
+              Innobix
+            </p>
+          </div>
+        </div>
+        <div class="px-9">
+          <div class="flex w-full">
+            <!-- <div class="grid grid-cols-4 gap-12"> -->
+            <div
+              class="flex flex-row flex-wrap justify-between items-center w-full relative"
+            >
+              <div class="text-sm font-light text-slate-500 w-1/3">
+                <p class="text-sm font-normal text-slate-700">
+                  Invoice Detail:
+                </p>
+                <p class="w-2/3">{{data[0].toAddress}}</p>
+                <!-- <p>Fake Street 123</p>
+                <p>San Javier</p>
+                <p>CA 1234</p> -->
+              </div>
+              <div class="text-sm font-light text-slate-500 w-1/3">
+                <p class="text-sm font-normal text-slate-700">Billed To</p>
+                <p class="w-2/3">{{data[0].billingAddress}}</p>
+                <!-- <p>Tesla Street 007</p>
+                <p>Frisco</p>
+                <p>CA 0000</p> -->
+              </div>
+              <div class="text-sm font-light text-slate-500 w-1/3">
+                <p class="text-sm font-normal text-slate-700">Invoice Number</p>
+                <p>{{data[0].invoiceName}}</p>
+
+                <p class="mt-2 text-sm font-normal text-slate-700">
+                  Date of Issue
+                </p>
+                <p>{{data[0].invoiceDate}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="px-9">
+          <div class="flex flex-col mx-0 mt-8">
+            <table class="min-w-full divide-y divide-slate-500">
+              <thead>
+                <tr>
+                  <th
+                    scope="col"
+                    class="py-3.5 pl-4 pr-3 text-left text-sm font-normal text-slate-700 sm:pl-6 md:pl-0"
+                  >
+                    Description
+                  </th>
+                  <th
+                    scope="col"
+                    class="hidden py-3.5 px-3 text-right text-sm font-normal text-slate-700 sm:table-cell"
+                  >
+                    Quantity
+                  </th>
+                  <th
+                    scope="col"
+                    class="hidden py-3.5 px-3 text-right text-sm font-normal text-slate-700 sm:table-cell"
+                  >
+                    Rate
+                  </th>
+                  <th
+                    scope="col"
+                    class="py-3.5 pl-3 pr-4 text-right text-sm font-normal text-slate-700 sm:pr-6 md:pr-0"
+                  >
+                    Amount
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr
+                  class="border-b border-slate-200"
+                  *ngFor="let item of data[0].allRows"
+                >
+                  <td class="py-2 pl-4 pr-3 text-sm sm:pl-6 md:pl-0">
+                    <div class="font-medium text-slate-700">
+                      {{ item.name }}
+                    </div>
+                    <div class="mt-0.5 text-slate-500 sm:hidden">
+                      1 unit at ₹0.00
+                    </div>
+                  </td>
+                  <td
+                    class="hidden px-3 py-2 text-sm text-right text-slate-500 sm:table-cell"
+                  >
+                    {{ item.quantity }}
+                  </td>
+                  <td
+                    class="hidden px-3 py-2 text-sm text-right text-slate-500 sm:table-cell"
+                  >
+                    ₹{{ item.price }}
+                  </td>
+                  <td
+                    class="py-2 pl-3 pr-4 text-sm text-right text-slate-500 sm:pr-6 md:pr-0"
+                  >
+                    ₹{{ item.total }}
+                  </td>
+                </tr>
+
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th
+                    scope="row"
+                    colspan="3"
+                    class="hidden pt-2 pl-6 pr-3 text-sm font-light text-right text-slate-500 sm:table-cell md:pl-0"
+                  >
+                    Subtotal
+                  </th>
+                  <th
+                    scope="row"
+                    class="pt-2 pl-4 pr-3 text-sm font-light text-left text-slate-500 sm:hidden"
+                  >
+                    Subtotal
+                  </th>
+                  <td
+                    class="pt-2 pl-3 pr-4 text-sm text-right text-slate-500 sm:pr-6 md:pr-0"
+                  >
+                    ₹0.00
+                  </td>
+                </tr>
+                <tr>
+                  <th
+                    scope="row"
+                    colspan="3"
+                    class="hidden pt-2 pl-6 pr-3 text-sm font-light text-right text-slate-500 sm:table-cell md:pl-0"
+                  >
+                    Discount
+                  </th>
+                  <th
+                    scope="row"
+                    class="pt-2 pl-4 pr-3 text-sm font-light text-left text-slate-500 sm:hidden"
+                  >
+                    Discount
+                  </th>
+                  <td
+                    class="pt-2 pl-3 pr-4 text-sm text-right text-slate-500 sm:pr-6 md:pr-0"
+                  >
+                    ₹0.00
+                  </td>
+                </tr>
+                <tr>
+                  <th
+                    scope="row"
+                    colspan="3"
+                    class="hidden pt-2 pl-6 pr-3 text-sm font-light text-right text-slate-500 sm:table-cell md:pl-0"
+                  >
+                    Tax
+                  </th>
+                  <th
+                    scope="row"
+                    class="pt-2 pl-4 pr-3 text-sm font-light text-left text-slate-500 sm:hidden"
+                  >
+                    Tax
+                  </th>
+                  <td
+                    class="pt-2 pl-3 pr-4 text-sm text-right text-slate-500 sm:pr-6 md:pr-0"
+                  >
+                    ₹0.00
+                  </td>
+                </tr>
+                <tr>
+                  <th
+                    scope="row"
+                    colspan="3"
+                    class="hidden pt-2 pl-6 pb-3 pr-3 text-sm font-normal text-right text-slate-700 sm:table-cell md:pl-0"
+                  >
+                    Total
+                  </th>
+                  <th
+                    scope="row"
+                    class="pt-2 pl-4 pr-3 pb-3 text-sm font-normal text-left text-slate-700 sm:hidden"
+                  >
+                    Total
+                  </th>
+                  <td
+                    class="pt-2 pl-3 pb-3 pr-4 text-sm font-normal text-right text-slate-700 sm:pr-6 md:pr-0"
+                  >
+                    ₹{{ grant_total }}
+                  </td>
+                </tr>
+              </tfoot>
+            </table>
+          </div>
+        </div>
+
+        <div class="px-10">
+          <div class="border-t pt-5 border-slate-200">
+            <div class="text-sm font-light text-slate-700">
+              <p>
+                Payment terms are 14 days. Please be aware that according to the
+                Late Payment of Unwrapped Debts Act 0000, freelancers are
+                entitled to claim a 00.00 late fee upon non-payment of debts
+                after this time.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+  </div>
+  <a
+    class="absolute top-10 right-10 inline-flex items-center justify-center p-4 px-6 py-3 overflow-hidden font-medium text-indigo-600 transition duration-300 ease-out border-2 border-purple-500 rounded-full shadow-md group cursor-pointer"
+    (click)="makepdf()"
+  >
+    <span
+      class="absolute inset-0 flex items-center justify-center w-full h-full text-white duration-300 -translate-x-full bg-purple-500 group-hover:translate-x-0 ease"
+    >
+      <svg
+        class="w-6 h-6"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M14 5l7 7m0 0l-7 7m7-7H3"
+        ></path>
+      </svg>
+    </span>
+    <span
+      class="absolute flex items-center justify-center w-full h-full text-purple-500 transition-all duration-300 transform group-hover:translate-x-full ease"
+      >Download</span
+    >
+    <span class="relative invisible">Download</span>
+  </a>
+</section>

@@ -5,9 +5,10 @@
 }
 
 .rwd-table {
+  padding-top: 5%;
   margin: auto;
-  min-width: 300px;
-  max-width: 100%;
+  /* min-width: 300px; */
+  width: calc(100% - 50px);
   border-collapse: collapse;
 }
 

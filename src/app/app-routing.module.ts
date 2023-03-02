@@ -8,6 +8,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { AllusersComponent } from './pages/practise/allusers/allusers.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { Template1Component } from './pages/temp/template1/template1.component';
+import { TemplateAddComponent } from './components/template-add/template-add.component';
 
 const routes: Routes = [
   {
@@ -41,6 +42,10 @@ const routes: Routes = [
   {
     path: "template1",
     component: Template1Component
+  },
+  {
+    path: "template/1",
+    component: TemplateAddComponent
   },
 ];
 
