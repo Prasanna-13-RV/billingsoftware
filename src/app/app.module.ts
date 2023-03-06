@@ -62,12 +62,13 @@ import { MatTableModule } from '@angular/material/table';
     MatTableModule,
 
     AngularFireModule.initializeApp({
-      apiKey: "AIzaSyDekzTTXgScbcWhOlqC4T7zcNCWlinCGuw",
-      authDomain: "innobix-1c2c1.firebaseapp.com",
-      projectId: "innobix-1c2c1",
-      storageBucket: "innobix-1c2c1.appspot.com",
-      messagingSenderId: "596616046478",
-      appId: "1:596616046478:web:4c5436e8b989706d95e6df"
+      apiKey: "AIzaSyDhf4jFL1kbXzNkNB6gtvLhl9OIIdrJ6JQ",
+      authDomain: "theinnobix.firebaseapp.com",
+      projectId: "theinnobix",
+      storageBucket: "theinnobix.appspot.com",
+      messagingSenderId: "217011218623",
+      appId: "1:217011218623:web:5de60422083f8a7ac6fe0a",
+      measurementId: "G-Y8GH266LE0"
     }),
     BrowserAnimationsModule,
   ],

@@ -44,7 +44,7 @@ const routes: Routes = [
     component: Template1Component
   },
   {
-    path: "template/1",
+    path: "template/:id",
     component: TemplateAddComponent
   },
 ];

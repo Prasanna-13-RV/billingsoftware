@@ -1,3 +1,5 @@
+import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { TemplateAddComponent } from 'src/app/components/template-add/template-add.component';
@@ -71,8 +73,7 @@ export class Template1Component implements OnInit {
   prod_price: any;
   prod_total: any;
 
-  constructor() { }
-
+  constructor(private http: HttpClient, private router: Router) { }
 
   add_row_function() {
     this.allRows.push({
@@ -85,13 +86,16 @@ export class Template1Component implements OnInit {
     this.grant_total = Number(this.grant_total) + Number(this.prod_total);
   }
 
-
   invoice_name: any;
   invoice_date: any;
   billing_address: any;
   to_address: any;
 
   newBill: Data[] = [];
+  bill_id: Number = 0;
+
+  save_button: boolean = true;
+  edit_button: boolean = false;
 
   create_bill() {
     this.newBill.push({
@@ -101,6 +105,36 @@ export class Template1Component implements OnInit {
       toAddress: this.to_address,
       allRows: this.allRows
     })
-    console.log(this.newBill);
+    console.log(JSON.stringify(this.newBill));
+
+    this.http.post("http://localhost:8080/template/template1/create", {
+      user_id: 12345,
+      all_data: JSON.stringify(this.newBill),
+    }).subscribe((res: any) => {
+      console.log(res);
+      this.bill_id = res.template_id;
+      console.log(this.bill_id);
+      alert("Success")
+    })
+    this.save_button = false;
+    this.edit_button = true;
   }
+
+  edit_bill() {
+    this.http.put(`http://localhost:8080/template/template1/update/${this.bill_id}`, {
+      template_id: this.bill_id,
+      user_id: 12345,
+      all_data: JSON.stringify(this.newBill),
+    }).subscribe((res) => {
+      console.log(res);
+      alert("Edited")
+    })
+  }
+
+
+  template_id: any;
+  user_id: any;
+  all_data: any;
+
+
 }
