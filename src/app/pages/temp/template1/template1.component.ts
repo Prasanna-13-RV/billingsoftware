@@ -34,39 +34,19 @@ export class Template1Component implements OnInit {
       this.grant_total = Number(this.grant_total) + Number(res.total);
       console.log(res);
     })
+
+    this.user = JSON.parse(localStorage.getItem('user')!)
+    console.log(this.user.id);
+
+    this.template_id = JSON.parse(localStorage.getItem('template_id')!)
+    console.log(this.template_id);
   }
 
-  allRows: Row[] = [
-    // {
-    //   id: 1,
-    //   name: "Hello",
-    //   quantity: 65,
-    //   price: 50,
-    //   total: 21
-    // },
-    // {
-    //   id: 2,
-    //   name: "Hello1",
-    //   quantity: 65,
-    //   price: 50,
-    //   total: 25
-    // },
-    // {
-    //   id: 3,
-    //   name: "Hello23",
-    //   quantity: 65,
-    //   price: 50,
-    //   total: 27
-    // },
-    // {
-    //   id: 4,
-    //   name: "Hello3",
-    //   quantity: 65,
-    //   price: 50,
-    //   total: 20
-    // },
-  ];
+  user: any;
 
+  allRows: Row[] = [];
+
+  template_id: any;
 
   prod_name: any;
   prod_quantity: any;
@@ -91,7 +71,7 @@ export class Template1Component implements OnInit {
   billing_address: any;
   to_address: any;
 
-  newBill: Data[] = [];
+  newBill: Data[] = []
   bill_id: Number = 0;
 
   save_button: boolean = true;
@@ -108,11 +88,12 @@ export class Template1Component implements OnInit {
     console.log(JSON.stringify(this.newBill));
 
     this.http.post("http://localhost:8080/template/template1/create", {
-      user_id: 12345,
+      template_id: this.template_id,
+      user_id: this.user.id,
       all_data: JSON.stringify(this.newBill),
     }).subscribe((res: any) => {
       console.log(res);
-      this.bill_id = res.template_id;
+      this.bill_id = res.id;
       console.log(this.bill_id);
       alert("Success")
     })
@@ -131,8 +112,10 @@ export class Template1Component implements OnInit {
     })
   }
 
+  hrefEvent() {
+    this.router.navigate([`/template/${this.bill_id}`])
+  }
 
-  template_id: any;
   user_id: any;
   all_data: any;
 

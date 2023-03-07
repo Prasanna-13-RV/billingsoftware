@@ -1,4 +1,6 @@
+import { FooterService } from './services/footer/footer.service';
 import { Component } from '@angular/core';
+import { NavService } from './services/nav/nav.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'innobix';
+
+  constructor(public nav: NavService, public footer: FooterService) { }
+
 }

@@ -1,0 +1,7 @@
+.navClick {
+  transform: translateX(0) !important;
+}
+
+.profile {
+  display: block !important;
+}

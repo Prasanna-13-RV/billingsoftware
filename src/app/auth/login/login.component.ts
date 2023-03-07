@@ -11,7 +11,7 @@ export class LoginComponent {
   email: string = "";
   password: string = "";
 
-  constructor(private auth: AuthService) { }
+  constructor(public auth: AuthService) { }
 
   login() {
     if (this.email == "") {

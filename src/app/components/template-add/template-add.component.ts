@@ -42,10 +42,6 @@ export class TemplateAddComponent {
       // console.log(this.tabledata[0][0]);
       this.tabledata = JSON.parse(this.mydata.all_data)
       console.log(this.tabledata[0]);
-
-
-
-
     })
 
   }
@@ -74,23 +70,4 @@ export class TemplateAddComponent {
       console.log(error);
     }
   }
-
-
 }
-
-
-// allRows
-// :
-// [{…}]
-// billingAddress
-// :
-// "fghjkl"
-// invoiceDate
-// :
-// "6789-05-04"
-// invoiceName
-// :
-// "4567"
-// toAddress
-// :
-// "fghjk"

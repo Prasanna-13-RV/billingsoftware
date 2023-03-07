@@ -9,6 +9,10 @@ import { AllusersComponent } from './pages/practise/allusers/allusers.component'
 import { ProfileComponent } from './pages/profile/profile.component';
 import { Template1Component } from './pages/temp/template1/template1.component';
 import { TemplateAddComponent } from './components/template-add/template-add.component';
+import { MyTemplatesComponent } from './pages/dashboard/my-templates/my-templates.component';
+import { AllTemplatesComponent } from './pages/dashboard/all-templates/all-templates.component';
+import { EditTemplatesComponent } from './pages/dashboard/edit-templates/edit-templates.component';
+import { AuthGuardService } from './services/auth/auth-guard.service';
 
 const routes: Routes = [
   {
@@ -21,7 +25,8 @@ const routes: Routes = [
   },
   {
     path: "profile",
-    component: ProfileComponent
+    component: ProfileComponent,
+    canActivate : [AuthGuardService]
   },
   {
     path: "template",
@@ -37,15 +42,33 @@ const routes: Routes = [
   },
   {
     path: "allusers",
-    component: AllusersComponent
+    component: AllusersComponent,
+    canActivate : [AuthGuardService]
   },
   {
     path: "template1",
-    component: Template1Component
+    component: Template1Component,
+    canActivate : [AuthGuardService]
   },
   {
     path: "template/:id",
-    component: TemplateAddComponent
+    component: TemplateAddComponent,
+    canActivate : [AuthGuardService]
+  },
+  {
+    path: "dashboard/mytemplates",
+    component: MyTemplatesComponent,
+    canActivate : [AuthGuardService]
+  },
+  {
+    path: "dashboard/alltemplates",
+    component: AllTemplatesComponent,
+    canActivate : [AuthGuardService]
+  },
+  {
+    path: "dashboard/edittemplates/:id",
+    component: EditTemplatesComponent,
+    canActivate : [AuthGuardService]
   },
 ];
 
@@ -53,4 +76,6 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
+
+
 export class AppRoutingModule { }

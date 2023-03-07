@@ -1,0 +1,117 @@
+<app-sidenav></app-sidenav>
+
+<section class="min-h-screen lg:pl-64 md:pl-64 pt-16">
+  <div class="container mb-12 mx-auto px-4 md:px-12 min-h-screen">
+    <div
+      class="flex flex-wrap w-full -mx-1 lg:-mx-4 flex-row justify-center items-center"
+    >
+      <!-- Column -->
+      <div
+        class="my-1 px-1 w-[100%] md:w-1/2 lg:my-4 lg:px-4 lg:w-[100%] flex flex-wrap justify-center items-center"
+      >
+        <!-- Article -->
+        <!-- <article
+          class="overflow-hidden rounded-lg shadow-lg w-[18rem] m-2"
+          *ngFor="let item of allTemplate"
+        >
+          <a>
+            <img
+              alt="Placeholder"
+              class="block h-auto w-full"
+              src="https://picsum.photos/600/400/?random"
+            />
+          </a>
+
+          <header
+            class="flex items-center justify-between leading-tight p-2 md:p-4"
+          >
+            <h1 class="text-lg">
+              <a
+                class="no-underline hover:underline text-black"
+                href="/template/{{ item.id }}"
+              >
+                Template {{ item.id }}
+              </a>
+            </h1>
+            <p class="text-lg">
+              <a
+                class="no-underline hover:underline text-black"
+                href="/dashboard/edittemplates/{{ item.id }}"
+              >
+                Edit
+              </a>
+            </p>
+            <p class="text-lg">
+              <a
+                class="no-underline hover:underline text-red-500"
+                (click)="deleteTemplate(item.id)"
+              >
+                Delete
+              </a>
+            </p>
+
+          </header>
+        </article> -->
+
+        <div
+          class="max-w-sm bg-white border border-gray-200 rounded-lg shadow flex flex-wrap justify-between w-[18rem] m-2"
+          *ngFor="let item of allTemplate"
+        >
+          <a href="#">
+            <img
+              class="rounded-t-lg"
+              src="https://picsum.photos/600/400/?random"
+              alt=""
+            />
+          </a>
+          <div class="p-5 w-full">
+            <a href="#">
+              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">
+                Template {{ item.id }}
+              </h5>
+            </a>
+            <div class="flex flex-wrap justify-between w-full">
+              <a
+                href="#"
+                class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300"
+                href="/template/{{ item.id }}"
+              >
+                Read more
+                <svg
+                  aria-hidden="true"
+                  class="w-4 h-4 ml-2 -mr-1"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+              </a>
+              <a
+                href="#"
+                class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-green-700 rounded-lg hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300"
+                href="/dashboard/edittemplates/{{ item.id }}"
+              >
+                Edit
+              </a>
+              <a
+                href="#"
+                class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-red-700 rounded-lg hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300"
+                (click)="deleteTemplate(item.id)"
+              >
+                Delete
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- END Article -->
+      </div>
+      <!-- END Column -->
+    </div>
+  </div>
+</section>

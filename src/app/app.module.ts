@@ -1,3 +1,4 @@
+import { AuthGuardService } from './services/auth/auth-guard.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -30,6 +31,10 @@ import { MatFormFieldModule } from '@angular/material/form-field'
 import { MatInputModule } from '@angular/material/input'
 import { MatDialogModule } from '@angular/material/dialog'
 import { MatTableModule } from '@angular/material/table';
+import { SidenavComponent } from './pages/dashboard/sidenav/sidenav.component';
+import { MyTemplatesComponent } from './pages/dashboard/my-templates/my-templates.component';
+import { AllTemplatesComponent } from './pages/dashboard/all-templates/all-templates.component';
+import { EditTemplatesComponent } from './pages/dashboard/edit-templates/edit-templates.component';
 
 
 @NgModule({
@@ -46,6 +51,10 @@ import { MatTableModule } from '@angular/material/table';
     Template1Component,
     TemplateComponent,
     TemplateAddComponent,
+    SidenavComponent,
+    MyTemplatesComponent,
+    AllTemplatesComponent,
+    EditTemplatesComponent,
   ],
   imports: [
     BrowserModule,
@@ -73,6 +82,6 @@ import { MatTableModule } from '@angular/material/table';
     BrowserAnimationsModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent, AuthGuardService]
 })
 export class AppModule { }

@@ -1,3 +1,5 @@
+import { NavService } from './../../services/nav/nav.service';
+import { Router } from '@angular/router';
 import { Component, OnInit, AfterContentInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
@@ -10,25 +12,23 @@ import { HttpClient } from '@angular/common/http';
 
 export class ProfileComponent implements OnInit, AfterContentInit {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private router: Router, private nav: NavService) { }
   allData: any;
-  myData : any;
-
+  myData: any;
 
   ngOnInit(): void {
+
+    this.nav.hide()
+
+
     this.allData = JSON.parse(localStorage.getItem('user')!)
-    // console.log(this.allData.address);
-
-    for (let i = 0; i < this.allData.length; i++) {
-
-    }
+    console.log(this.allData);
 
     // this.http.get(`http://localhost:8080/user/${this.allData.id}`).subscribe((res) => {
     //   console.log(res);
 
     // })
   }
-
 
 
   userProfile: any;
@@ -62,6 +62,9 @@ export class ProfileComponent implements OnInit, AfterContentInit {
       template_id: this.userProfile.value.template_id,
     }).subscribe((res) => {
       console.log(res, "res");
+      localStorage.removeItem('user')
+      localStorage.setItem('user', JSON.stringify(res))
+      this.router.navigate(['/'])
     })
   }
 }
