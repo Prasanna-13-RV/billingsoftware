@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NavService } from 'src/app/services/nav/nav.service';
 
 @Component({
   selector: 'app-home',
@@ -11,24 +12,27 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     // console.log(this.allData)
+    this.nav.show()
   }
+
+  constructor(private nav: NavService){}
 
   allData = JSON.parse(localStorage.getItem('user')!)
 
   featuresArray = [
     {
       featureName: "Different Templates",
-      featureDescripttion: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam, maiores enim ab voluptatem culpa cum eligendi minima dolores magnam officia, nemo, alias molestias non repellendus dolorum. Sapiente non ad nostrum.",
-      featureImage: "https://img.icons8.com/emoji/48/null/smiling-face-with-smiling-eyes.png"
+      featureDescripttion: "There are more templates in Innobix for producing bill templates, allowing users to create bills for their own purposes.",
+      featureImage: "https://img.icons8.com/external-inipagistudio-lineal-color-inipagistudio/48/000000/external-receipt-retail-store-inipagistudio-lineal-color-inipagistudio.png"
     },
     {
-      featureName: "Different Templates",
-      featureDescripttion: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam, maiores enim ab voluptatem culpa cum eligendi minima dolores magnam officia, nemo, alias molestias non repellendus dolorum. Sapiente non ad nostrum.",
-      featureImage: "https://img.icons8.com/emoji/48/null/smiling-face-with-smiling-eyes.png"
+      featureName: "Different Invoices",
+      featureDescripttion: "Whereas making such bills is the easiest task in Innobix, it can help the business develop as innovators are more crucial to the company's financial health.",
+      featureImage: "https://img.icons8.com/external-vitaliy-gorbachev-lineal-vitaly-gorbachev/48/null/external-invoices-ecommerce-vitaliy-gorbachev-lineal-vitaly-gorbachev.png"
     },
     {
-      featureName: "Different Templates",
-      featureDescripttion: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam, maiores enim ab voluptatem culpa cum eligendi minima dolores magnam officia, nemo, alias molestias non repellendus dolorum. Sapiente non ad nostrum.",
+      featureName: "Financial Support",
+      featureDescripttion: "As a financial partner, Innobix will enable the business to email investors with invoices and bills created on this website.",
       featureImage: "https://img.icons8.com/emoji/48/null/smiling-face-with-smiling-eyes.png"
     },
   ]
@@ -48,5 +52,12 @@ export class HomeComponent implements OnInit {
     },
   ]
 
+  show: boolean = false
 
+  showMenu() {
+    this.show = !this.show
+
+  }
 }
+
+

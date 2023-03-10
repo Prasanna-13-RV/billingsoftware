@@ -9,66 +9,25 @@
       <div
         class="my-1 px-1 w-[100%] md:w-1/2 lg:my-4 lg:px-4 lg:w-[100%] flex flex-wrap justify-center items-center"
       >
-        <!-- Article -->
-        <!-- <article
-          class="overflow-hidden rounded-lg shadow-lg w-[18rem] m-2"
-          *ngFor="let item of allTemplate"
-        >
-          <a>
-            <img
-              alt="Placeholder"
-              class="block h-auto w-full"
-              src="https://picsum.photos/600/400/?random"
-            />
-          </a>
-
-          <header
-            class="flex items-center justify-between leading-tight p-2 md:p-4"
-          >
-            <h1 class="text-lg">
-              <a
-                class="no-underline hover:underline text-black"
-                href="/template/{{ item.id }}"
-              >
-                Template {{ item.id }}
-              </a>
-            </h1>
-            <p class="text-lg">
-              <a
-                class="no-underline hover:underline text-black"
-                href="/dashboard/edittemplates/{{ item.id }}"
-              >
-                Edit
-              </a>
-            </p>
-            <p class="text-lg">
-              <a
-                class="no-underline hover:underline text-red-500"
-                (click)="deleteTemplate(item.id)"
-              >
-                Delete
-              </a>
-            </p>
-
-          </header>
-        </article> -->
-
+        <p *ngIf="allTemplate.length == 0" class="text-2xl w-full">
+          Currently no templates created...
+        </p>
         <div
           class="max-w-sm bg-white border border-gray-200 rounded-lg shadow flex flex-wrap justify-between w-[18rem] m-2"
           *ngFor="let item of allTemplate"
         >
           <a href="#">
             <img
-              class="rounded-t-lg"
-              src="https://picsum.photos/600/400/?random"
+              class="rounded-t-lg w-[19rem] h-[12rem] object-cover"
+              src="https://square-mailstrom-production.s3.amazonaws.com/invoices/templates/img/en-gb-invoice-template-576474.jpg?v=2"
               alt=""
             />
           </a>
           <div class="p-5 w-full">
             <a href="#">
-              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">
+              <h3 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">
                 Template {{ item.id }}
-              </h5>
+              </h3>
             </a>
             <div class="flex flex-wrap justify-between w-full">
               <a

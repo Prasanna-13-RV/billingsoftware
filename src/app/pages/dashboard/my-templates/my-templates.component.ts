@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
   templateUrl: './my-templates.component.html',
   styleUrls: ['./my-templates.component.css']
 })
+
 export class MyTemplatesComponent implements OnInit {
   ngOnInit(): void {
 
@@ -20,8 +21,6 @@ export class MyTemplatesComponent implements OnInit {
 
     this.http.get("http://localhost:8080/template/template1/alldata").subscribe((res: any) => {
       res.map((r: any) => {
-        // console.log(r);
-        // console.log(r.user_id);
         if (r.user_id == this.userId.id) {
           this.allTemplate.push(r)
           this.allTemplate.map((e: any) => {
@@ -43,6 +42,7 @@ export class MyTemplatesComponent implements OnInit {
     this.http.delete(`http://localhost:8080/template/template1/delete/${id}`).subscribe((res) => {
       console.log(res);
       alert("Deleted Successfully")
+      this.router.navigate(['/dashboard/mytemplates'])
     })
   }
 

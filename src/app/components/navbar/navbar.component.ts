@@ -13,11 +13,24 @@ export class NavbarComponent implements OnInit {
   constructor(private auth: AuthService) { }
 
   ngOnInit(): void {
+    this.user = JSON.parse(localStorage.getItem('user')!)
+    console.log(this.user);
+    
     this.getToken = Boolean(localStorage.getItem('token')!)
     console.log(this.getToken);
+
+  }
+
+  user: any;
+
+  myprofile: boolean = false
+  profileButton() {
+    this.myprofile = !this.myprofile
+    console.log(this.myprofile);
   }
 
   logout() {
     this.auth.logout()
+
   }
 }

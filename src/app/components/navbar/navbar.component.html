@@ -1,41 +1,8 @@
-<!-- <div class="w-full flex flex-col justify-center items-center lg:pt-2">
-  <div class="nav">
-    <input type="checkbox" id="nav-check" />
-    <div class="nav-header w-[50px] h-50px flex  items-center">
-      <img
-
-        class="object-contain"
-        src="../../../assets/logo/single-logo-transparent.png"
-        alt=""
-      />
-      <div class="nav-title">Innobix</div>
-    </div>
-    <div class="nav-btn">
-      <label for="nav-check">
-        <span></span>
-        <span></span>
-        <span></span>
-      </label>
-    </div>
-
-    <div class="nav-links">
-      <a routerLink="/">Home</a>
-      <a routerLink="/contact">Contact</a>
-      <a routerLink="/template">Templates</a>
-      <a routerLink="/login" *ngIf="getToken != true">Login</a>
-      <a routerLink="/register" *ngIf="getToken != true">Register</a>
-      <a routerLink="/login" *ngIf="getToken != false" (click)="logout()"
-        >Logout</a
-      >
-    </div>
-  </div>
-</div> -->
-
 <nav
   class="relative top-0 z-50 w-full bg-white border-b border-gray-200 px-2 sm:px-4 py-2.5 rounded"
 >
   <div class="container flex flex-wrap items-center justify-between mx-auto">
-    <a href="#" class="flex items-center">
+    <a routerLink="#" class="flex items-center">
       <!-- <img
         src=""
         class="h-6 mr-3 sm:h-9"
@@ -45,7 +12,7 @@
         >Innobix</span
       >
     </a>
-    <div class="flex items-center md:order-2">
+    <div class="flex items-center md:order-2" (click)="profileButton()">
       <button
         type="button"
         class="flex mr-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300"
@@ -58,44 +25,35 @@
         <img class="w-8 h-8 rounded-full" alt="user photo" />
       </button>
       <div
-        class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow"
+        class="z-50 hidden absolute top-12 w-[10rem] right-10 my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow"
         id="user-dropdown"
+        [ngClass]="myprofile ? 'profile' : 'null'"
       >
         <div class="px-4 py-3">
-          <span class="block text-sm text-gray-900">Bonnie Green</span>
-          <span class="block text-sm font-medium text-gray-500 truncate"
-            >name@</span
-          >
+          <!-- <span class="block text-sm text-gray-900">{{user.username}}</span> -->
         </div>
         <ul class="py-2" aria-labelledby="user-menu-button">
           <li>
             <a
-              href="#"
+              routerLink="/dashboard/mytemplates"
               class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-              >Dashboard</a
+              >My Templates</a
             >
           </li>
           <li>
             <a
-              href="#"
+              routerLink="/dashboard/alltemplates"
               class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-              >Settings</a
+              >All Templates</a
             >
           </li>
-          <li>
+          <!-- <li>
             <a
-              href="#"
-              class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-              >Earnings</a
-            >
-          </li>
-          <li>
-            <a
-              href="#"
+              routerLink="#"
               class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
               >Sign out</a
             >
-          </li>
+          </li> -->
         </ul>
       </div>
       <button
@@ -150,32 +108,26 @@
             >Templates</a
           >
         </li>
-        <li
-        *ngIf="getToken != true">
-          <a
-            routerLink="/register"
-            class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0"
-
-            >Register</a
-          >
-        </li>
-        <li
-        *ngIf="getToken != true">
+        <li *ngIf="getToken != true">
           <a
             routerLink="/login"
             class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0"
-
             >Login</a
           >
         </li>
-        <li
-        *ngIf="getToken != false"
-        (click)="logout()"
-        >
+        <li *ngIf="getToken != true">
           <a
             routerLink="/register"
             class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0"
-
+            >Register</a
+          >
+        </li>
+        <li>
+          <a
+            routerLink="/login"
+            class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0"
+            *ngIf="getToken != false"
+            (click)="logout()"
             >Logout</a
           >
         </li>
@@ -183,3 +135,18 @@
     </div>
   </div>
 </nav>
+
+<!-- FROM node:latest as builder
+
+RUN mkdir -p /app
+
+WORKDIR /app
+
+COPY . .
+
+RUN npm install
+RUN npm run build --prod
+
+CMD ["npm", "start"]
+
+-->

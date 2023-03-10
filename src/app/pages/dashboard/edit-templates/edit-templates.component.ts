@@ -1,6 +1,6 @@
 import { FooterService } from './../../../services/footer/footer.service';
 import { HttpClient } from '@angular/common/http';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { NavService } from './../../../services/nav/nav.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -56,14 +56,13 @@ export class EditTemplatesComponent implements OnInit {
       // this.prod_price = this.tabledata[0].;
       // this.prod_total = this.tabledata[0].;
 
-
       this.allRows = this.tabledata[0].allRows
 
 
     })
   }
 
-  constructor(private nav: NavService, private activatedRoute: ActivatedRoute, private http: HttpClient, private footer: FooterService) { }
+  constructor(private nav: NavService, private activatedRoute: ActivatedRoute, private http: HttpClient, private footer: FooterService, private router: Router) { }
 
 
   id: any;
@@ -124,8 +123,8 @@ export class EditTemplatesComponent implements OnInit {
   save_button: any;
   edit_button: any;
 
-  hrefEvent() { }
-
-
+  hrefEvent() {
+    this.router.navigate([`/template/${this.id}`])
+  }
 
 }

@@ -11,22 +11,18 @@
       >
         <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow">
           <img
-            class="rounded-t-lg"
-            src="https://picsum.photos/600/400/?random"
+            class="rounded-t-lg w-[19rem] h-[12rem] object-cover"
+            src="https://square-mailstrom-production.s3.amazonaws.com/invoices/templates/img/en-gb-invoice-template-576474.jpg?v=2"
             alt=""
           />
           <div class="p-5">
             <a>
               <h3 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">
-                Article Title
+                Template 1
               </h3>
             </a>
-            <!-- <p class="mb-3 font-normal text-gray-700 >
-              Here are the biggest enterprise technology acquisitions of 2021 so
-              far, in reverse chronological order.
-            </p> -->
             <a
-              routerLink="/template1"
+              (click)="clickButton(1234)"
               class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300"
             >
               Read more
