@@ -1,0 +1,91 @@
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+    id 'com.google.dagger.hilt.android'
+    id 'kotlin-kapt'
+    id 'com.google.gms.google-services'
+}
+
+android {
+    namespace 'com.example.roomdatabase'
+    compileSdk 33
+
+    defaultConfig {
+        minSdk 24
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+    kotlinOptions {
+        jvmTarget = '11'
+    }
+}
+
+dependencies {
+
+    implementation 'androidx.core:core-ktx:1.9.0'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.10.0'
+    implementation 'com.google.firebase:firebase-firestore-ktx:24.9.1'
+    implementation 'com.google.firebase:firebase-database-ktx:20.3.0'
+    testImplementation 'junit:junit:4.13.2'
+    implementation 'com.google.firebase:firebase-auth:22.3.0'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+
+//    room database
+    def room_version = "2.6.0"
+    implementation "androidx.room:room-runtime:$room_version"
+    annotationProcessor "androidx.room:room-compiler:$room_version"
+    kapt("androidx.room:room-compiler:$room_version")
+    implementation "androidx.room:room-ktx:$room_version"
+
+    // Dagger Hilt
+    kapt 'com.google.dagger:hilt-compiler:2.48'
+    androidTestImplementation "com.google.dagger:hilt-android-testing:2.48"
+    kaptAndroidTest "com.google.dagger:hilt-android-compiler:2.48"
+
+    //hilt with viewModel
+    implementation 'com.google.dagger:hilt-android:2.48'
+    annotationProcessor 'com.google.dagger:hilt-compiler:2.48'
+    implementation "androidx.hilt:hilt-navigation-fragment:1.1.0"
+    kapt "androidx.hilt:hilt-compiler:1.1.0"
+
+    //    gson
+    implementation 'com.google.code.gson:gson:2.10.1'
+    implementation 'androidx.work:work-runtime-ktx:2.8.1'
+
+
+    //    truth
+    testImplementation "com.google.truth:truth:1.1.4"
+
+    //    mockk
+    testImplementation "io.mockk:mockk:1.13.8"
+    testImplementation "io.mockk:mockk-android:1.13.8"
+    testImplementation "com.linkedin.dexmaker:dexmaker:2.28.3"
+    androidTestImplementation "io.mockk:mockk:1.13.8"
+    androidTestImplementation "io.mockk:mockk-android:1.13.8"
+
+
+    def coroutinesVersion = "1.7.3"
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutinesVersion"
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test-jvm:$coroutinesVersion"
+
+    androidTestImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutinesVersion"
+    androidTestImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test-jvm:$coroutinesVersion"
+
+    testImplementation "androidx.arch.core:core-testing:2.2.0"
+
+
+}

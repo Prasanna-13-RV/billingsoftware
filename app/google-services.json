@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "809550553052",
+    "project_id": "innobixapp",
+    "storage_bucket": "innobixapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:809550553052:android:23e470a13ced2b5b423919",
+        "android_client_info": {
+          "package_name": "com.example.billgenerator"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "809550553052-jeclrhn49s63k6tm6k5dt78rt4s2oq00.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.billgenerator",
+            "certificate_hash": "25b78ade8f28001d6e3d497c3dc9d33a0b39b0e1"
+          }
+        },
+        {
+          "client_id": "809550553052-h3puiqu50ambs1v4ouc6iqod4vhtft2t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAHSVd5P23o3GN3Gx19ynY03y2BdP7x1CQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "809550553052-h3puiqu50ambs1v4ouc6iqod4vhtft2t.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
